@@ -59,5 +59,3 @@
     { "id": "UA-43", "value": 0, "name": "Крим", "en_name": "Crimea" }
   ]
 }
-
-//new Date("2020-05-23").getTime();
