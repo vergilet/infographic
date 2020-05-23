@@ -1,0 +1,137 @@
+[
+  {
+    "id": "UA-05",
+    "value": 7479,
+    "name": "Vinnytsia"
+  },
+  {
+    "id": "UA-07",
+    "value": 9727,
+    "name": "Volyn"
+  },
+  {
+    "id": "UA-09",
+    "value": 3863,
+    "name": "Luhansk"
+  },
+  {
+    "id": "UA-12",
+    "value": 906,
+    "name": "Dnipropetrovsk"
+  },
+  {
+    "id": "UA-14",
+    "value": 2298,
+    "name": "Donetsk"
+  },
+  {
+    "id": "UA-18",
+    "value": 9972,
+    "name": "Zhytomyr"
+  },
+  {
+    "id": "UA-21",
+    "value": 6664,
+    "name": "Zakarpattia"
+  },
+  {
+    "id": "UA-23",
+    "value": 948,
+    "name": "Zaporizhzhya"
+  },
+  {
+    "id": "UA-26",
+    "value": 7283,
+    "name": "Ivano-Frankivsk"
+  },
+  {
+    "id": "UA-30",
+    "value": 9972,
+    "name": "Kiev City"
+  },
+  {
+    "id": "UA-32",
+    "value": 4342,
+    "name": "Kiev"
+  },
+  {
+    "id": "UA-35",
+    "value": 9902,
+    "name": "Kirovohrad"
+  },
+  {
+    "id": "UA-40",
+    "value": 6998,
+    "name": "Sevastopol"
+  },
+  {
+    "id": "UA-43",
+    "value": 3451,
+    "name": "Crimea"
+  },
+  {
+    "id": "UA-46",
+    "value": 5561,
+    "name": "Lviv"
+  },
+  {
+    "id": "UA-48",
+    "value": 7600,
+    "name": "Mykolaiv"
+  },
+  {
+    "id": "UA-51",
+    "value": 4521,
+    "name": "Odessa"
+  },
+  {
+    "id": "UA-53",
+    "value": 3077,
+    "name": "Poltava"
+  },
+  {
+    "id": "UA-56",
+    "value": 4800,
+    "name": "Rivne"
+  },
+  {
+    "id": "UA-59",
+    "value": 6872,
+    "name": "Sumy"
+  },
+  {
+    "id": "UA-61",
+    "value": 5735,
+    "name": "Ternopil"
+  },
+  {
+    "id": "UA-63",
+    "value": 5331,
+    "name": "Kharkiv"
+  },
+  {
+    "id": "UA-65",
+    "value": 6116,
+    "name": "Kherson"
+  },
+  {
+    "id": "UA-68",
+    "value": 4559,
+    "name": "Khmelnytskyi"
+  },
+  {
+    "id": "UA-71",
+    "value": 6860,
+    "name": "Cherkasy"
+  },
+  {
+    "id": "UA-74",
+    "value": 4354,
+    "name": "Chernihiv"
+  },
+  {
+    "id": "UA-77",
+    "value": 635,
+    "name": "Chernivtsi"
+  }
+]
