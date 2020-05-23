@@ -6,6 +6,7 @@
     <script src="https://www.amcharts.com/lib/4/maps.js" crossorigin="anonymous"></script>
     <script src="https://www.amcharts.com/lib/4/geodata/data/countries2.js" crossorigin="anonymous"></script>
     <script src="https://www.amcharts.com/lib/4/themes/animated.js" crossorigin="anonymous"></script>
+    <script src="//www.amcharts.com/lib/4/themes/material.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <style>
@@ -24,7 +25,8 @@
 
 
         window.onload = function() {
-
+            am4core.useTheme(am4themes_animated);
+            am4core.useTheme(am4themes_material);
             /**
              * This demo uses our own method of determining user's location
              * It is not public web service that you can use
@@ -63,9 +65,9 @@
                 chart.maxZoomLevel = 1;
                 chart.seriesContainer.events.disableType("doublehit");
                 chart.chartContainer.background.events.disableType("doublehit");
-                chart.geodataSource.url = "/infographic/data/ukraine-low-poli.json";
+                chart.geodataSource.url = "data/ukraine-low-poli.json";
                 chart.geodataSource.events.on("parseended", function(ev) {
-                    jQuery.getJSON( "/infographic/data/data.json", function( geo ) {
+                    jQuery.getJSON( "data/data.json", function( geo ) {
                         polygonSeries.data = geo;
                     });
                 })
@@ -80,8 +82,8 @@
                 polygonSeries.heatRules.push({
                     property: "fill",
                     target: polygonSeries.mapPolygons.template,
-                    min: chart.colors.getIndex(1).brighten(1),
-                    max: chart.colors.getIndex(1).brighten(-0.3)
+                    min: chart.colors.getIndex(18).brighten(1),
+                    max: chart.colors.getIndex(18).brighten(-0.65)
                 });
 
                 // Make map load polygon data (state shapes and names) from GeoJSON
@@ -119,7 +121,7 @@
 
                 // Create hover state and set alternative fill color
                 var hs = polygonTemplate.states.create("hover");
-                hs.properties.fill = chart.colors.getIndex(1).brighten(-0.5);
+                hs.properties.fill = chart.colors.getIndex(6).brighten(-0.5);
 
             // });
 

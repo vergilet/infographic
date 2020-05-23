@@ -1,137 +1,137 @@
 [
   {
     "id": "UA-05",
-    "value": 7479,
+    "value": 853,
     "name": "Vinnytsia"
   },
   {
     "id": "UA-07",
-    "value": 9727,
+    "value": 759,
     "name": "Volyn"
   },
   {
     "id": "UA-09",
-    "value": 3863,
+    "value": 43,
     "name": "Luhansk"
   },
   {
     "id": "UA-12",
-    "value": 906,
+    "value": 865,
     "name": "Dnipropetrovsk"
   },
   {
     "id": "UA-14",
-    "value": 2298,
+    "value": 143,
     "name": "Donetsk"
   },
   {
     "id": "UA-18",
-    "value": 9972,
+    "value": 618,
     "name": "Zhytomyr"
   },
   {
     "id": "UA-21",
-    "value": 6664,
+    "value": 1042,
     "name": "Zakarpattia"
   },
   {
     "id": "UA-23",
-    "value": 948,
+    "value": 403,
     "name": "Zaporizhzhya"
   },
   {
     "id": "UA-26",
-    "value": 7283,
+    "value": 1274,
     "name": "Ivano-Frankivsk"
   },
   {
     "id": "UA-30",
-    "value": 9972,
+    "value": 2569,
     "name": "Kiev City"
   },
   {
     "id": "UA-32",
-    "value": 4342,
+    "value": 1375,
     "name": "Kiev"
   },
   {
     "id": "UA-35",
-    "value": 9902,
+    "value": 466,
     "name": "Kirovohrad"
   },
   {
     "id": "UA-40",
-    "value": 6998,
+    "value": 0,
     "name": "Sevastopol"
   },
   {
     "id": "UA-43",
-    "value": 3451,
+    "value": 0,
     "name": "Crimea"
   },
   {
     "id": "UA-46",
-    "value": 5561,
+    "value": 1285,
     "name": "Lviv"
   },
   {
     "id": "UA-48",
-    "value": 7600,
+    "value": 280,
     "name": "Mykolaiv"
   },
   {
     "id": "UA-51",
-    "value": 4521,
+    "value": 821,
     "name": "Odessa"
   },
   {
     "id": "UA-53",
-    "value": 3077,
+    "value": 266,
     "name": "Poltava"
   },
   {
     "id": "UA-56",
-    "value": 4800,
+    "value": 1368,
     "name": "Rivne"
   },
   {
     "id": "UA-59",
-    "value": 6872,
+    "value": 166,
     "name": "Sumy"
   },
   {
     "id": "UA-61",
-    "value": 5735,
+    "value": 1108,
     "name": "Ternopil"
   },
   {
     "id": "UA-63",
-    "value": 5331,
+    "value": 892,
     "name": "Kharkiv"
   },
   {
     "id": "UA-65",
-    "value": 6116,
+    "value": 177,
     "name": "Kherson"
   },
   {
     "id": "UA-68",
-    "value": 4559,
+    "value": 329,
     "name": "Khmelnytskyi"
   },
   {
     "id": "UA-71",
-    "value": 6860,
+    "value": 386,
     "name": "Cherkasy"
   },
   {
     "id": "UA-74",
-    "value": 4354,
+    "value": 127,
     "name": "Chernihiv"
   },
   {
     "id": "UA-77",
-    "value": 635,
+    "value": 2964,
     "name": "Chernivtsi"
   }
 ]
