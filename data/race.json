@@ -1,276 +1,60 @@
 {
   "1590105600000": [
-    {
-      "id": "UA-05",
-      "value": 0,
-      "name": "Vinnytsia"
-    },
-    {
-      "id": "UA-07",
-      "value": 0,
-      "name": "Volyn"
-    },
-    {
-      "id": "UA-09",
-      "value": 0,
-      "name": "Luhansk"
-    },
-    {
-      "id": "UA-12",
-      "value": 0,
-      "name": "Dnipropetrovsk"
-    },
-    {
-      "id": "UA-14",
-      "value": 0,
-      "name": "Donetsk"
-    },
-    {
-      "id": "UA-18",
-      "value": 0,
-      "name": "Zhytomyr"
-    },
-    {
-      "id": "UA-21",
-      "value": 0,
-      "name": "Zakarpattia"
-    },
-    {
-      "id": "UA-23",
-      "value": 0,
-      "name": "Zaporizhzhya"
-    },
-    {
-      "id": "UA-26",
-      "value": 0,
-      "name": "Ivano-Frankivsk"
-    },
-    {
-      "id": "UA-30",
-      "value": 0,
-      "name": "Kiev City"
-    },
-    {
-      "id": "UA-32",
-      "value": 0,
-      "name": "Kiev"
-    },
-    {
-      "id": "UA-35",
-      "value": 0,
-      "name": "Kirovohrad"
-    },
-    {
-      "id": "UA-40",
-      "value": 0,
-      "name": "Sevastopol"
-    },
-    {
-      "id": "UA-43",
-      "value": 0,
-      "name": "Crimea"
-    },
-    {
-      "id": "UA-46",
-      "value": 0,
-      "name": "Lviv"
-    },
-    {
-      "id": "UA-48",
-      "value": 0,
-      "name": "Mykolaiv"
-    },
-    {
-      "id": "UA-51",
-      "value": 0,
-      "name": "Odessa"
-    },
-    {
-      "id": "UA-53",
-      "value": 0,
-      "name": "Poltava"
-    },
-    {
-      "id": "UA-56",
-      "value": 0,
-      "name": "Rivne"
-    },
-    {
-      "id": "UA-59",
-      "value": 0,
-      "name": "Sumy"
-    },
-    {
-      "id": "UA-61",
-      "value": 0,
-      "name": "Ternopil"
-    },
-    {
-      "id": "UA-63",
-      "value": 0,
-      "name": "Kharkiv"
-    },
-    {
-      "id": "UA-65",
-      "value": 0,
-      "name": "Kherson"
-    },
-    {
-      "id": "UA-68",
-      "value": 0,
-      "name": "Khmelnytskyi"
-    },
-    {
-      "id": "UA-71",
-      "value": 0,
-      "name": "Cherkasy"
-    },
-    {
-      "id": "UA-74",
-      "value": 0,
-      "name": "Chernihiv"
-    },
-    {
-      "id": "UA-77",
-      "value": 0,
-      "name": "Chernivtsi"
-    }
+    { "id": "UA-05", "value": 0, "name": "Вінницька область", "en_name": "Vinnytsia" },
+    { "id": "UA-07", "value": 0, "name": "Волинська область", "en_name": "Volyn" },
+    { "id": "UA-12", "value": 0, "name": "Дніпропетровська область", "en_name": "Dnipropetrovsk" },
+    { "id": "UA-14", "value": 0, "name": "Донецька область", "en_name": "Donetsk" },
+    { "id": "UA-18", "value": 0, "name": "Житомирська область", "en_name": "Zhytomyr" },
+    { "id": "UA-21", "value": 0, "name": "Закарпатська область", "en_name": "Zakarpattia" },
+    { "id": "UA-23", "value": 0, "name": "Запорізька область", "en_name": "Zaporizhzhya" },
+    { "id": "UA-26", "value": 0, "name": "Івано-Франківська область", "en_name": "Ivano-Frankivsk" },
+    { "id": "UA-35", "value": 0, "name": "Кіровоградська область", "en_name": "Kirovohrad" },
+    { "id": "UA-30", "value": 0, "name": "м. Київ", "en_name": "Kiev City" },
+    { "id": "UA-32", "value": 0, "name": "Київська область", "en_name": "Kiev" },
+    { "id": "UA-46", "value": 0, "name": "Львівська область", "en_name": "Lviv" },
+    { "id": "UA-09", "value": 0, "name": "Луганська область", "en_name": "Luhansk" },
+    { "id": "UA-48", "value": 0, "name": "Миколаївська область", "en_name": "Mykolaiv" },
+    { "id": "UA-51", "value": 0, "name": "Одеська область", "en_name": "Odessa" },
+    { "id": "UA-53", "value": 0, "name": "Полтавська область", "en_name": "Poltava" },
+    { "id": "UA-56", "value": 0, "name": "Рівненська область", "en_name": "Rivne" },
+    { "id": "UA-59", "value": 0, "name": "Сумська область", "en_name": "Sumy" },
+    { "id": "UA-61", "value": 0, "name": "Тернопільська область", "en_name": "Ternopil" },
+    { "id": "UA-63", "value": 0, "name": "Харківська область", "en_name": "Kharkiv" },
+    { "id": "UA-65", "value": 0, "name": "Херсонська область", "en_name": "Kherson" },
+    { "id": "UA-68", "value": 0, "name": "Хмельницька область", "en_name": "Khmelnytskyi" },
+    { "id": "UA-77", "value": 0, "name": "Чернівецька область", "en_name": "Chernivtsi" },
+    { "id": "UA-71", "value": 0, "name": "Черкаська область", "en_name": "Cherkasy" },
+    { "id": "UA-74", "value": 0, "name": "Чернігівська область", "en_name": "Chernihiv" },
+    { "id": "UA-40", "value": 0, "name": "Севастополь", "en_name": "Sevastopol" },
+    { "id": "UA-43", "value": 0, "name": "Крим", "en_name": "Crimea" }
   ],
   "1590192000000": [
-    {
-      "id": "UA-05",
-      "value": 853,
-      "name": "Vinnytsia"
-    },
-    {
-      "id": "UA-07",
-      "value": 759,
-      "name": "Volyn"
-    },
-    {
-      "id": "UA-09",
-      "value": 43,
-      "name": "Luhansk"
-    },
-    {
-      "id": "UA-12",
-      "value": 865,
-      "name": "Dnipropetrovsk"
-    },
-    {
-      "id": "UA-14",
-      "value": 143,
-      "name": "Donetsk"
-    },
-    {
-      "id": "UA-18",
-      "value": 618,
-      "name": "Zhytomyr"
-    },
-    {
-      "id": "UA-21",
-      "value": 1042,
-      "name": "Zakarpattia"
-    },
-    {
-      "id": "UA-23",
-      "value": 403,
-      "name": "Zaporizhzhya"
-    },
-    {
-      "id": "UA-26",
-      "value": 1274,
-      "name": "Ivano-Frankivsk"
-    },
-    {
-      "id": "UA-30",
-      "value": 2569,
-      "name": "Kiev City"
-    },
-    {
-      "id": "UA-32",
-      "value": 1375,
-      "name": "Kiev"
-    },
-    {
-      "id": "UA-35",
-      "value": 466,
-      "name": "Kirovohrad"
-    },
-    {
-      "id": "UA-40",
-      "value": 0,
-      "name": "Sevastopol"
-    },
-    {
-      "id": "UA-43",
-      "value": 0,
-      "name": "Crimea"
-    },
-    {
-      "id": "UA-46",
-      "value": 1285,
-      "name": "Lviv"
-    },
-    {
-      "id": "UA-48",
-      "value": 280,
-      "name": "Mykolaiv"
-    },
-    {
-      "id": "UA-51",
-      "value": 821,
-      "name": "Odessa"
-    },
-    {
-      "id": "UA-53",
-      "value": 266,
-      "name": "Poltava"
-    },
-    {
-      "id": "UA-56",
-      "value": 1368,
-      "name": "Rivne"
-    },
-    {
-      "id": "UA-59",
-      "value": 166,
-      "name": "Sumy"
-    },
-    {
-      "id": "UA-61",
-      "value": 1108,
-      "name": "Ternopil"
-    },
-    {
-      "id": "UA-63",
-      "value": 892,
-      "name": "Kharkiv"
-    },
-    {
-      "id": "UA-65",
-      "value": 177,
-      "name": "Kherson"
-    },
-    {
-      "id": "UA-68",
-      "value": 329,
-      "name": "Khmelnytskyi"
-    },
-    {
-      "id": "UA-71",
-      "value": 386,
-      "name": "Cherkasy"
-    },
-    {
-      "id": "UA-74",
-      "value": 127,
-      "name": "Chernihiv"
-    },
-    {
-      "id": "UA-77",
-      "value": 2964,
-      "name": "Chernivtsi"
-    }
+    { "id": "UA-05", "value": 853, "name": "Вінницька область", "en_name": "Vinnytsia" },
+    { "id": "UA-07", "value": 759, "name": "Волинська область", "en_name": "Volyn" },
+    { "id": "UA-12", "value": 865, "name": "Дніпропетровська область", "en_name": "Dnipropetrovsk" },
+    { "id": "UA-14", "value": 143, "name": "Донецька область", "en_name": "Donetsk" },
+    { "id": "UA-18", "value": 618, "name": "Житомирська область", "en_name": "Zhytomyr" },
+    { "id": "UA-21", "value": 1042, "name": "Закарпатська область", "en_name": "Zakarpattia" },
+    { "id": "UA-23", "value": 403, "name": "Запорізька область", "en_name": "Zaporizhzhya" },
+    { "id": "UA-26", "value": 1274, "name": "Івано-Франківська область", "en_name": "Ivano-Frankivsk" },
+    { "id": "UA-35", "value": 466, "name": "Кіровоградська область", "en_name": "Kirovohrad" },
+    { "id": "UA-30", "value": 2569, "name": "м. Київ", "en_name": "Kiev City" },
+    { "id": "UA-32", "value": 1375, "name": "Київська область", "en_name": "Kiev" },
+    { "id": "UA-46", "value": 1285, "name": "Львівська область", "en_name": "Lviv" },
+    { "id": "UA-09", "value": 43, "name": "Луганська область", "en_name": "Luhansk" },
+    { "id": "UA-48", "value": 280, "name": "Миколаївська область", "en_name": "Mykolaiv" },
+    { "id": "UA-51", "value": 821, "name": "Одеська область", "en_name": "Odessa" },
+    { "id": "UA-53", "value": 266, "name": "Полтавська область", "en_name": "Poltava" },
+    { "id": "UA-56", "value": 1368, "name": "Рівненська область", "en_name": "Rivne" },
+    { "id": "UA-59", "value": 166, "name": "Сумська область", "en_name": "Sumy" },
+    { "id": "UA-61", "value": 1108, "name": "Тернопільська область", "en_name": "Ternopil" },
+    { "id": "UA-63", "value": 892, "name": "Харківська область", "en_name": "Kharkiv" },
+    { "id": "UA-65", "value": 177, "name": "Херсонська область", "en_name": "Kherson" },
+    { "id": "UA-68", "value": 329, "name": "Хмельницька область", "en_name": "Khmelnytskyi" },
+    { "id": "UA-77", "value": 2964, "name": "Чернівецька область", "en_name": "Chernivtsi" },
+    { "id": "UA-71", "value": 386, "name": "Черкаська область", "en_name": "Cherkasy" },
+    { "id": "UA-74", "value": 127, "name": "Чернігівська область", "en_name": "Chernihiv" },
+    { "id": "UA-40", "value": 0, "name": "Севастополь", "en_name": "Sevastopol" },
+    { "id": "UA-43", "value": 0, "name": "Крим", "en_name": "Crimea" }
   ]
 }
