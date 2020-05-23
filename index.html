@@ -419,7 +419,6 @@
 
         var chart = am4core.create("chartdiv4", am4charts.XYChart);
         jQuery.getJSON( "data/tendentious.json", function( data ) {
-            console.log(data);
             chart.data = data;
         });
 
