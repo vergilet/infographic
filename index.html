@@ -3,6 +3,7 @@
     <meta charset="utf-8">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://www.amcharts.com/lib/4/core.js" crossorigin="anonymous"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js" crossorigin="anonymous"></script>
     <script src="https://www.amcharts.com/lib/4/maps.js" crossorigin="anonymous"></script>
     <script src="https://www.amcharts.com/lib/4/geodata/data/countries2.js" crossorigin="anonymous"></script>
     <script src="https://www.amcharts.com/lib/4/themes/animated.js" crossorigin="anonymous"></script>
@@ -10,16 +11,65 @@
 </head>
 <body>
 <style>
+    @font-face {
+        font-family: "Comfortaa";
+        src: url("/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf");
+    }
+
+
+    html, body {
+        font-family: 'Comfortaa', Arial, sans-serif;
+        font-weight:normal;
+        font-style:normal;
+        margin: 0;
+    }
+    #section1{
+        margin:0;
+        padding: 10px;
+        background-color: #f5f5f5;
+    }
     #chartdiv {
         width: 100%;
         max-width: 800px;
-        height: 650px;
+        max-height: 600px;
         margin: auto;
+        height: calc(100% - 40px);
+    }
+
+    #section2{
+        margin:0;
+        padding: 10px;
+        background-color: rgb(198, 237, 255);
+    }
+    #chartdiv2 {
+        margin: auto;
+        width: 100%;
+        max-width: 800px;
+        max-height: 700px;
+        height: 100%
+    }
+    #section3 {
+        margin:0;
+        padding: 10px;
+        background-color: rgb(238, 230, 255)
+    }
+    #chartdiv3 {
+        width: 100%;
+        height: 600px;
+    }
+    #section4 {
+        margin:0;
+        padding: 10px;
+        background-color: rgb(245, 226, 179)
+    }
+    #chartdiv4 {
+        width: 100%;
+        height: 600px;
     }
 
 </style>
 
-<!-- Chart code -->
+
 <script>
     am4core.ready(function() {
 
@@ -57,7 +107,7 @@
                 // Create map instance
                 var chart = am4core.create("chartdiv", am4maps.MapChart);
 
-                chart.titles.create().text = title;
+                // chart.titles.create().text = title;
 
                 // Set map definition
                 chart.seriesContainer.draggable = false;
@@ -129,11 +179,280 @@
 
     }); // end am4core.ready()
 </script>
+<script>
 
-<div id="chartdiv"></div>
-<span id="chartdiv2"></span>
+    const startDate = "2020-05-22";
+    const endDate = "2020-05-23";
+    Date.prototype.addDays = function(days) {
+        var date = new Date(this.valueOf());
+        date.setDate(date.getDate() + days);
+        return date;
+    }
+
+    am4core.ready(function() {
+
+// Themes begin
+        am4core.useTheme(am4themes_animated);
+// Themes end
+
+        var chart = am4core.create("chartdiv2", am4charts.XYChart);
+        chart.padding(40, 40, 40, 40);
+
+        chart.numberFormatter.bigNumberPrefixes = [
+            { "number": 1e+3, "suffix": "K" },
+            { "number": 1e+6, "suffix": "M" },
+            { "number": 1e+9, "suffix": "B" }
+        ];
+
+        var label = chart.plotContainer.createChild(am4core.Label);
+        label.x = am4core.percent(97);
+        label.y = am4core.percent(95);
+        label.horizontalCenter = "right";
+        label.verticalCenter = "middle";
+        label.dx = -15;
+        label.fontSize = 50;
+
+        var playButton = chart.plotContainer.createChild(am4core.PlayButton);
+        playButton.x = am4core.percent(97);
+        playButton.y = am4core.percent(95);
+        playButton.dy = -2;
+        playButton.verticalCenter = "middle";
+        playButton.events.on("toggled", function(event) {
+            if (event.target.isActive) {
+                play();
+            }
+            else {
+                stop();
+            }
+        })
+
+        var stepDuration = 4000;
+
+        var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.dataFields.category = "name";
+        categoryAxis.renderer.minGridDistance = 1;
+        categoryAxis.renderer.inversed = true;
+        categoryAxis.renderer.grid.template.disabled = true;
+
+        var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
+        valueAxis.min = 0;
+        valueAxis.rangeChangeEasing = am4core.ease.linear;
+        valueAxis.rangeChangeDuration = stepDuration;
+        valueAxis.extraMax = 0.1;
+
+        var series = chart.series.push(new am4charts.ColumnSeries());
+        series.dataFields.categoryY = "name";
+        series.dataFields.valueX = "value";
+        series.tooltipText = "{valueX.value}"
+        series.columns.template.strokeOpacity = 0;
+        series.columns.template.column.cornerRadiusBottomRight = 5;
+        series.columns.template.column.cornerRadiusTopRight = 5;
+        series.interpolationDuration = stepDuration;
+        series.interpolationEasing = am4core.ease.linear;
+
+        var labelBullet = series.bullets.push(new am4charts.LabelBullet())
+        labelBullet.label.horizontalCenter = "right";
+        labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#.0as')}";
+        labelBullet.label.textAlign = "end";
+        labelBullet.label.dx = -10;
+
+        chart.zoomOutButton.disabled = true;
+
+// as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+        series.columns.template.adapter.add("fill", function(fill, target){
+            return chart.colors.getIndex(target.dataItem.index);
+        });
+
+        var year = new Date(startDate);
+        label.text = year.toLocaleDateString()
+
+        var interval;
+
+        function play() {
+            interval = setInterval(function(){
+                nextYear();
+            }, stepDuration)
+            nextYear();
+        }
+
+        function stop() {
+            if (interval) {
+                clearInterval(interval);
+            }
+        }
+
+        function nextYear() {
+            year = year.addDays(1);
+
+            if (year.getTime() > new Date(startDate).addDays(1).getTime()) {
+                stop()
+                return;
+            }
+
+            var newData = allData[year.getTime()];
+            var itemsWithNonZero = 0;
+            for (var i = 0; i < chart.data.length; i++) {
+                chart.data[i].value = newData[i].value;
+                if (chart.data[i].value > 0) {
+                    itemsWithNonZero++;
+                }
+            }
+
+            if (year.getTime() == new Date(startDate).getTime()) {
+                series.interpolationDuration = stepDuration / 4;
+                valueAxis.rangeChangeDuration = stepDuration / 4;
+            }
+            else {
+                series.interpolationDuration = stepDuration;
+                valueAxis.rangeChangeDuration = stepDuration;
+            }
+
+            chart.invalidateRawData();
+            label.text = year.toLocaleDateString()
+
+            categoryAxis.zoom({ start: 0, end: itemsWithNonZero / categoryAxis.dataItems.length });
+        }
+
+
+        categoryAxis.sortBySeries = series;
+        var allData = {};
+
+        jQuery.getJSON('data/race.json', function(data) {
+            allData = data;
+            chart.data = JSON.parse(JSON.stringify(allData[year.getTime()]));
+            categoryAxis.zoom({ start: 0, end: 1 / chart.data.length });
+            series.events.on("inited", function() {
+                setTimeout(function() {
+                    playButton.isActive = true; // this starts interval
+                }, 2000)
+            })
+        });
+
+
+
+
+
+    }); // end am4core.ready()
+</script>
+<script>
+    am4core.ready(function() {
+
+// Themes begin
+        am4core.useTheme(am4themes_animated);
+// Themes end
+
+// Create chart instance
+        var chart = am4core.create("chartdiv3", am4charts.XYChart3D);
+
+// Add data
+        jQuery.getJSON('data/experiments.json', function(data) {
+            chart.data = data;
+        });
+
+// Create axes
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "country";
+        categoryAxis.renderer.labels.template.rotation = 0;
+        categoryAxis.renderer.labels.template.hideOversized = true;
+        categoryAxis.renderer.minGridDistance = 20;
+        categoryAxis.renderer.labels.template.horizontalCenter = "right";
+        categoryAxis.renderer.labels.template.verticalCenter = "middle";
+        // categoryAxis.tooltip.label.rotation = 270;
+        categoryAxis.cursorTooltipEnabled = false;
+        // categoryAxis.tooltip.label.horizontalCenter = "right";
+        // categoryAxis.tooltip.label.verticalCenter = "middle";
+
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        valueAxis.title.text = "Осіб";
+        valueAxis.title.fontWeight = "bold";
+
+// Create series
+        var series = chart.series.push(new am4charts.ColumnSeries3D());
+        series.dataFields.valueY = "visits";
+        series.dataFields.categoryX = "country";
+        series.name = "Visits";
+        series.tooltipText = "{categoryX}: [bold]{valueY}[/]";
+        series.columns.template.fillOpacity = .8;
+        series.columns.template.propertyFields.fill = "color";
+
+        var columnTemplate = series.columns.template;
+        columnTemplate.strokeWidth = 2;
+        columnTemplate.strokeOpacity = 1;
+        columnTemplate.stroke = am4core.color("#FFFFFF");
+
+        chart.cursor = new am4charts.XYCursor();
+        chart.cursor.lineX.strokeOpacity = 0;
+        chart.cursor.lineY.strokeOpacity = 0;
+
+// Enable export
+        chart.exporting.menu = new am4core.ExportMenu();
+
+    }); // end am4core.ready()
+</script>
+<script>
+    am4core.ready(function() {
+
+// Themes begin
+        am4core.useTheme(am4themes_animated);
+// Themes end
+
+        var chart = am4core.create("chartdiv4", am4charts.XYChart);
+        jQuery.getJSON( "data/tendentious.json", function( data ) {
+            chart.data = data;
+        });
+
+// Create axes
+        var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+        dateAxis.renderer.minGridDistance = 60;
+
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+// Create series
+        var series = chart.series.push(new am4charts.LineSeries());
+        series.dataFields.valueY = "value";
+        series.dataFields.dateX = "date";
+        series.tooltipText = "{value}"
+
+        series.tooltip.pointerOrientation = "vertical";
+
+        chart.cursor = new am4charts.XYCursor();
+        chart.cursor.snapToSeries = series;
+        chart.cursor.xAxis = dateAxis;
+
+//chart.scrollbarY = new am4core.Scrollbar();
+//         chart.scrollbarX = new am4core.Scrollbar();
+
+    }); // end am4core.ready()
+</script>
+
+<div id="section1">
+    <div style="text-align: center;">
+        <h1>COVID-19 Інфографіка</h1>
+    </div>
+    <div style="text-align: center;">
+        <h3>Області України</h3>
+    </div>
+    <div id="chartdiv"></div>
+</div>
+<div id="section2">
+    <div style="text-align: center; padding: 15px">
+        <h3>Таймлайн</h3>
+    </div>
+    <div id="chartdiv2"></div>
+</div>
+<div id="section3">
+    <div style="text-align: center; padding: 15px">
+        <h3>Смертність /  Одужання</h3>
+    </div>
+    <div id="chartdiv3"></div>
+</div>
+<div id="section4">
+    <div style="text-align: center; padding: 15px">
+        <h3>Тенденція захворювання</h3>
+    </div>
+    <div id="chartdiv4"></div>
+</div>
 
 </body>
 </html>
-
-<!--[{:id=>"UA-05", :value=>7479}, {:id=>"UA-07", :value=>9727}, {:id=>"UA-09", :value=>3863}, {:id=>"UA-12", :value=>906}, {:id=>"UA-14", :value=>2298}, {:id=>"UA-18", :value=>9972}, {:id=>"UA-21", :value=>6664}, {:id=>"UA-23", :value=>948}, {:id=>"UA-26", :value=>7283}, {:id=>"UA-30", :value=>9972}, {:id=>"UA-32", :value=>4342}, {:id=>"UA-35", :value=>9902}, {:id=>"UA-40", :value=>6998}, {:id=>"UA-43", :value=>3451}, {:id=>"UA-46", :value=>5561}, {:id=>"UA-48", :value=>7600}, {:id=>"UA-51", :value=>4521}, {:id=>"UA-53", :value=>3077}, {:id=>"UA-56", :value=>4800}, {:id=>"UA-59", :value=>6872}, {:id=>"UA-61", :value=>5735}, {:id=>"UA-63", :value=>5331}, {:id=>"UA-65", :value=>6116}, {:id=>"UA-68", :value=>4559}, {:id=>"UA-71", :value=>6860}, {:id=>"UA-74", :value=>4354}, {:id=>"UA-77", :value=>635}]-->
