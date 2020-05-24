@@ -273,7 +273,7 @@
 
         var labelBullet = series.bullets.push(new am4charts.LabelBullet())
         labelBullet.label.horizontalCenter = "right";
-        labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#')}";
+        labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#.as')}";
         labelBullet.label.textAlign = "end";
         labelBullet.label.dx = -10;
         labelBullet.label.fontSize = 12;
