@@ -37,7 +37,7 @@
         font-style:normal;
         margin: 0;
     }
-    #section1{
+    #області{
         margin:0;
         padding: 10px;
         background-color: #f5f5f5;
@@ -47,10 +47,10 @@
         max-width: 960px;
         max-height: 600px;
         margin: auto;
-        height: calc(100% - 40px);
+        height: calc(100% - 205px);
     }
 
-    #section2{
+    #таймлайн{
         margin:0;
         padding: 10px;
         background-color: rgb(198, 237, 255);
@@ -60,27 +60,27 @@
         width: 100%;
         max-height: 700px;
         max-width: 1260px;
-        height: 100%
+        height: calc(100% - 180px);
     }
-    #section3 {
+    #випадки {
         margin:0;
         padding: 10px;
         background-color: rgb(238, 230, 255)
     }
     #chartdiv3 {
         width: 100%;
-        height: 600px;
+        height: calc(100% - 180px);
         max-width: 960px;
         margin: auto;
     }
-    #section4 {
+    #тенденція {
         margin:0;
         padding: 10px;
         background-color: rgb(245, 226, 179)
     }
     #chartdiv4 {
         width: 100%;
-        height: 600px;
+        height: calc(100% - 180px);
         margin: auto;
         max-width: 960px;
     }
@@ -131,6 +131,7 @@
                 chart.seriesContainer.draggable = false;
                 chart.seriesContainer.resizable = false;
                 chart.maxZoomLevel = 1;
+                chart.chartContainer.wheelable = false;
                 // chart.seriesContainer.events.disableType("doublehit");
                 // chart.chartContainer.background.events.disableType("doublehit");
                 chart.geodataSource.url = "data/ukraine-low-poli.json";
@@ -201,7 +202,7 @@
 </script>
 <script>
 
-    const startDate = "2020-04-29";
+    const startDate = "2020-04-04";
     Date.prototype.addDays = function(days) {
         var date = new Date(this.valueOf());
         date.setDate(date.getDate() + days);
@@ -272,10 +273,11 @@
 
         var labelBullet = series.bullets.push(new am4charts.LabelBullet())
         labelBullet.label.horizontalCenter = "right";
-        labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#.0as')}";
+        labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#')}";
         labelBullet.label.textAlign = "end";
         labelBullet.label.dx = -10;
-
+        labelBullet.label.fontSize = 12;
+        labelBullet.label.paddingTop = 2;
         chart.zoomOutButton.disabled = true;
 
 // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
@@ -446,34 +448,89 @@
 
     }); // end am4core.ready()
 </script>
+<style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333333;
+    }
+    li {
+        float: left;
+        width: 25%;
+    }
 
-<div id="section1">
-    <div style="text-align: center;">
-        <h1>COVID-19 Інфографіка</h1>
-    </div>
-    <div style="text-align: center;">
-        <h3>Області України</h3>
-    </div>
-    <div id="chartdiv"></div>
-</div>
-<div id="section2">
-    <div style="text-align: center; padding: 15px">
-        <h3>Таймлайн</h3>
-    </div>
-    <div id="chartdiv2"></div>
-</div>
-<div id="section3">
-    <div style="text-align: center; padding: 15px">
-        <h3>Смертність / Одужання</h3>
-    </div>
-    <div id="chartdiv3"></div>
-</div>
-<div id="section4">
-    <div style="text-align: center; padding: 15px">
-        <h3>Тенденція захворювання</h3>
-    </div>
-    <div id="chartdiv4"></div>
-</div>
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding-top: 31px;
+        padding-bottom: 31px;
+        margin: auto;
+        text-decoration: none;
+    }
 
+    li a:hover {
+        background-color: #111111;
+    }
+    @media all and (max-width: 768px) {
+        li {
+            font-size: 12px
+        }
+    }
+    footer a:-webkit-any-link {
+        color: white;
+    }
+</style>
+<div id="header" style="position:fixed; top:0px; left:0px; height:80px; right:0px;overflow:hidden;z-index: 100">
+    <ul>
+        <li><a href="#області">Області</a></li>
+        <li><a href="#таймлайн">Таймлайн</a></li>
+        <li><a href="#випадки">Випадки</a></li>
+        <li><a href="#тенденція">Тенденція</a></li>
+    </ul>
+</div>
+<div id="content" style="">
+    <div id="області" style="padding-top:80px">
+        <div style="text-align: center;">
+            <h1>COVID-19 Інфографіка</h1>
+        </div>
+        <div style="text-align: center;">
+            <h3>Області України</h3>
+        </div>
+        <div id="chartdiv"></div>
+    </div>
+    <div id="таймлайн" style="padding-top:80px">
+        <div style="text-align: center; padding: 15px">
+            <h3>Таймлайн</h3>
+        </div>
+        <div id="chartdiv2"></div>
+    </div>
+    <div id="випадки" style="padding-top:80px">
+        <div style="text-align: center; padding: 15px">
+            <h3>Випадки смерті та одужання</h3>
+        </div>
+        <div id="chartdiv3"></div>
+    </div>
+    <div id="тенденція" style="padding-top:80px">
+        <div style="text-align: center; padding: 15px">
+            <h3>Тенденція захворювання</h3>
+        </div>
+        <div id="chartdiv4"></div>
+    </div>
+</div>
+<div id="footer" style="padding: 30px; background-color: #505050;color: #fff; font-size: 12px">
+    Інформацію взято з відкритих джерел.
+    <br>
+    Створено <a style="color:white" href="https://github.com/vergilet" target="_blank">Yaro</a>
+</div>
+<script>
+    $("ul li a").click(function(e) {
+        e.preventDefault();
+        var aid = $(this).attr("href");
+        $('html,body').animate({scrollTop: $(aid).offset().top},'slow');
+    });
+</script>
 </body>
 </html>
