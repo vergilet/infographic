@@ -162,12 +162,15 @@
                 let heatLegend = chart.createChild(am4maps.HeatLegend);
                 heatLegend.series = polygonSeries;
                 heatLegend.align = "left";
-                heatLegend.width = am4core.percent(25);
+                heatLegend.width = am4core.percent(20);
                 heatLegend.marginLeft = am4core.percent(6);
-                heatLegend.marginBottom = am4core.percent(5);
+                heatLegend.marginBottom = am4core.percent(20);
                 heatLegend.minValue = 0;
                 heatLegend.maxValue = 40000000;
                 heatLegend.valign = "bottom";
+                heatLegend.fontSize = 9;
+                // heatLegend.height = 2;
+
 
                 // Set up custom heat map legend labels using axis ranges
                 var minRange = heatLegend.valueAxis.axisRanges.create();
@@ -175,7 +178,7 @@
                 minRange.label.text = "Низький";
                 var maxRange = heatLegend.valueAxis.axisRanges.create();
                 maxRange.value = heatLegend.maxValue;
-                maxRange.label.text = "Високий рівень";
+                maxRange.label.text = "Високий";
 
                 // Blank out internal heat legend value axis labels
                 heatLegend.valueAxis.renderer.labels.template.adapter.add("text", function(labelText) {
