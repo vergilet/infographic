@@ -29,7 +29,5 @@ jobs:
         ruby-version: 2.6
     - name: Install dependencies
       run: bundle install
-    - name: Run tests
-      run: bundle exec rake
     - name: Run info update
       run: bundle exec ruby ruby.rb  
