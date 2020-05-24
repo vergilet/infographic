@@ -219,9 +219,9 @@
         chart.padding(40, 40, 40, 40);
 
         chart.numberFormatter.bigNumberPrefixes = [
-            { "number": 1e+3, "suffix": "K" },
-            { "number": 1e+6, "suffix": "M" },
-            { "number": 1e+9, "suffix": "B" }
+            // { "number": 1e+3, "suffix": "K" },
+            // { "number": 1e+6, "suffix": "M" },
+            // { "number": 1e+9, "suffix": "B" }
         ];
 
         var label = chart.plotContainer.createChild(am4core.Label);
@@ -273,7 +273,7 @@
 
         var labelBullet = series.bullets.push(new am4charts.LabelBullet())
         labelBullet.label.horizontalCenter = "right";
-        labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#.as')}";
+        labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#,###.as')}";
         labelBullet.label.textAlign = "end";
         labelBullet.label.dx = -10;
         labelBullet.label.fontSize = 12;
