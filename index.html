@@ -90,7 +90,7 @@
 
 <script>
     am4core.ready(function() {
-
+        jQuery.ajaxSetup({ cache: false });
 
         window.onload = function() {
             am4core.useTheme(am4themes_animated);
