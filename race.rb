@@ -58,7 +58,7 @@ class Race
     elsif oblast.match('м. Київ — ')
       text.slice!('м. Київ — ')
       slicer(text)
-      { "id": "UA-30", "value": text.to_i, "name": "м. Київ", "en_name": "Kiev City" }
+      { "id": "UA-30", "value": text.to_i, "name": "Київ", "en_name": "Kiev City" }
     elsif oblast.match('Київська область — ')
       text.slice!('Київська область — ')
       slicer(text)
