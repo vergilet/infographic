@@ -1,66 +1,65 @@
 require 'httparty'
 require 'nokogiri'
 require "json"
-require_relative 'tendentious'
-require_relative 'race'
-require_relative 'deaths_heals'
 
-file = File.open "data/input.json"
-input = JSON.load file
+file = File.open "data/air.json"
+@template = JSON.load(file)
 
-hash = {}
-tendentious = []
-deaths_heals = []
-input.each do |post_id, post_date|
-  next if post_id.is_a?(String)
-  date = Time.new(*post_date)
-  date = Time.parse(date.strftime('%Y-%m-%d %H:%M:%S UTC')).localtime
-  post_number = post_id
-  response = HTTParty.get("https://t.me/air_alert_ua/5142#{post_number}?embed=1")
-
-  pp "PostID:#{ post_id }, Date: #{ post_date }, GET: #{response.message}, Code: #{ response.code }"
+def process_post(post_id)
+  url = "https://t.me/air_alert_ua/#{post_id}"
+  response = HTTParty.get(url)
 
   parsed_data = Nokogiri::HTML.parse(response.body)
-  text = parsed_data.at_css('div.js-message_text')&.text&.strip
+  text = parsed_data.at('meta[property="og:description"]')["content"]
 
-  if text.nil?
-    raise StandardError.new("#{post_id} ERROR")
-  else
-    pp "Text present. Starting Tendentious parsing ..."
+  if text.nil? || text.include?("Офіційний канал, що інформує про повітряну тривогу в будь-якому регіоні України.")
+    @next_post_id ||= @last_post
+    if (@next_post_id + 10) < post_id
+      return @next_post_id
+    else
+      return post_id + 1
+    end
   end
 
-  tendentious << Tendentious.new(post_date, text).call
-  pp "Tendentious parsed!"
+  hashtags = text.scan(/\s(#[[:graph:]]+)/).flatten.map{ |s| s.strip[1..-1] }
 
-  pp "Parsing Oblasti ..."
-  new = Race.new(text).call
-  new << { "id": "UA-40", "value": 0, "name": "Севастополь", "en_name": "Sevastopol" }
-  new << { "id": "UA-43", "value": 0, "name": "Крим", "en_name": "Crimea" }
+  pp hashtags
+  hashtags.each do |hashtag|
+    obl_hash = @template.find{|obl| obl["name"].split('-').join('') == hashtag.split('_').join(' ')}
+    next if obl_hash.nil?
+    @template -= [obl_hash]
+    if text.include?("🔴")
+      p "🔴"
+      obl_hash["time"] = text[2..7]
+      obl_hash["value"] = 1
+    elsif text.include?("🟢")
+      p "🟢"
+      obl_hash["time"] = text[2..7]
+      obl_hash["value"] = 0
+    end
+    @template += [obl_hash]
+  end
+  # JSON GENERATION
 
-  hash["#{date.to_time.to_i}000"] = new
-  pp "Oblasti parsed!"
+  File.open("data/air.json","w") do |f|
+    f.write(@template.to_json)
+  end
 
-
-  pp "Deaths / Heals parsing ..."
-  deaths_heals = DeathsHeals.new(text).call
-  pp "Deaths / Heals parsed!"
-  pp '================'
+  @next_post_id = post_id + 1
+  File.open("data/last_post.json","w") do |f|
+    f.write({ post: @next_post_id }.to_json)
+  end
+  @next_post_id
 end
 
 
-# JSON GENERATION
+last_post_file = File.open "data/last_post.json"
+@last_post = JSON.load(last_post_file)["post"]
+@post_id = @last_post
 
-last_key = hash.keys.max
-pp "Last date detecting: #{last_key} - #{Time.at(last_key[0..-4].to_i).utc}"
-pp "Write data.json"
-File.open("data/data.json","w") do |f|
-  f.write(hash[last_key].to_json)
+loop do
+  @x = process_post(@post_id)
+  puts Time.now
+  sleep 15
+  @post_id = @x
 end
-pp "Done data.json"
-
-
-pp 'Write experiments.json'
-File.open('data/experiments.json', 'w') do |f|
-  f.write(deaths_heals.to_json)
-end
-pp 'Done experiments.json'
