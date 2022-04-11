@@ -45,7 +45,6 @@
     #chartdiv {
         width: 100%;
         max-width: 960px;
-        //max-height: 600px;
         margin: auto;
         height: calc(100% - 295px)
     }
@@ -107,8 +106,6 @@
                 chart.seriesContainer.resizable = false;
                 chart.maxZoomLevel = 1;
                 chart.chartContainer.wheelable = false;
-                // chart.seriesContainer.events.disableType("doublehit");
-                // chart.chartContainer.background.events.disableType("doublehit");
                 chart.geodataSource.url = "data/ukraine-low-poli.json";
                 chart.geodataSource.events.on("parseended", function(ev) {
                     jQuery.getJSON( "data/air.json", function( geo ) {
@@ -122,7 +119,7 @@
                 // Create map polygon series
                 var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
             
-                polygonSeries.mapPolygons.template.fill = chart.colors.getIndex("{value}").brighten(-0.5);
+                polygonSeries.mapPolygons.template.fill = chart.colors.getIndex(value).brighten(-0.5);
                 polygonSeries.fill = am4core.color("red");
 
                 // Make map load polygon data (state shapes and names) from GeoJSON
