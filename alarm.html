@@ -115,7 +115,10 @@
                         polygonSeries.data = geo;
                     });
                 })
-                chart.fill = am4core.color("red");
+                var polygonTemplate = polygonSeries.mapPolygons.template;
+                polygonTemplate.tooltipText = "{name}";
+                polygonTemplate.fill = am4core.color("red");
+                
                 // Set projection
                 chart.projection = new am4maps.projections.Mercator();
 
