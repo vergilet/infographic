@@ -112,6 +112,7 @@
                         polygonSeries.data = geo;
                     });
                 })
+            
                                 
                 // Set projection
                 chart.projection = new am4maps.projections.Mercator();
@@ -119,8 +120,15 @@
                 // Create map polygon series
                 var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
             
-                polygonSeries.mapPolygons.template.fill = chart.colors.getIndex(value).brighten(-0.5);
-                polygonSeries.fill = am4core.color("red");
+            
+                polygonSeries.heatRules.push({
+                    property: "fill",
+                    target: polygonSeries.mapPolygons.template,
+                    min: chart.colors.getIndex(1).brighten(1),
+                    max: chart.colors.getIndex(10).brighten(-0.65)
+                });
+            
+                polygonSeries.mapPolygons.template.fill = chart.colors.getIndex(1).brighten(-0.5);
 
                 // Make map load polygon data (state shapes and names) from GeoJSON
                 polygonSeries.useGeodata = true;
