@@ -122,7 +122,7 @@
                 // Create map polygon series
                 var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
             
-                polygonSeries.mapPolygons.template.fill = am4core.color("green");
+                polygonSeries.mapPolygons.template.fill = chart.colors.getIndex("{value}").brighten(-0.5);
                 polygonSeries.fill = am4core.color("red");
 
                 // Make map load polygon data (state shapes and names) from GeoJSON
