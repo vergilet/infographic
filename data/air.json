@@ -1,0 +1,136 @@
+[{
+    "id": "UA-05",
+    "value": 0,
+    "name": "Вінницька",
+    "en_name": "Vinnytsia"
+}, {
+    "id": "UA-07",
+    "value": 0,
+    "name": "Волинська",
+    "en_name": "Volyn"
+}, {
+    "id": "UA-12",
+    "value": 0,
+    "name": "Дніпропетровська",
+    "en_name": "Dnipropetrovsk"
+}, {
+    "id": "UA-14",
+    "value": 0,
+    "name": "Донецька",
+    "en_name": "Donetsk"
+}, {
+    "id": "UA-18",
+    "value": 0,
+    "name": "Житомирська",
+    "en_name": "Zhytomyr"
+}, {
+    "id": "UA-21",
+    "value": 0,
+    "name": "Закарпатська",
+    "en_name": "Zakarpattia"
+}, {
+    "id": "UA-23",
+    "value": 0,
+    "name": "Запорізька",
+    "en_name": "Zaporizhzhya"
+}, {
+    "id": "UA-26",
+    "value": 0,
+    "name": "Івано-Франківська",
+    "en_name": "Ivano-Frankivsk"
+}, {
+    "id": "UA-35",
+    "value": 0,
+    "name": "Кіровоградська",
+    "en_name": "Kirovohrad"
+}, {
+    "id": "UA-30",
+    "value": 0,
+    "name": "Київ",
+    "en_name": "Kiev City"
+}, {
+    "id": "UA-32",
+    "value": 0,
+    "name": "Київська",
+    "en_name": "Kiev"
+}, {
+    "id": "UA-46",
+    "value": 0,
+    "name": "Львівська",
+    "en_name": "Lviv"
+}, {
+    "id": "UA-09",
+    "value": 0,
+    "name": "Луганська",
+    "en_name": "Luhansk"
+}, {
+    "id": "UA-48",
+    "value": 0,
+    "name": "Миколаївська",
+    "en_name": "Mykolaiv"
+}, {
+    "id": "UA-51",
+    "value": 0,
+    "name": "Одеська",
+    "en_name": "Odessa"
+}, {
+    "id": "UA-53",
+    "value": 0,
+    "name": "Полтавська",
+    "en_name": "Poltava"
+}, {
+    "id": "UA-56",
+    "value": 0,
+    "name": "Рівненська",
+    "en_name": "Rivne"
+}, {
+    "id": "UA-59",
+    "value": 0,
+    "name": "Сумська",
+    "en_name": "Sumy"
+}, {
+    "id": "UA-61",
+    "value": 0,
+    "name": "Тернопільська",
+    "en_name": "Ternopil"
+}, {
+    "id": "UA-63",
+    "value": 0,
+    "name": "Харківська",
+    "en_name": "Kharkiv"
+}, {
+    "id": "UA-65",
+    "value": 0,
+    "name": "Херсонська",
+    "en_name": "Kherson"
+}, {
+    "id": "UA-68",
+    "value": 0,
+    "name": "Хмельницька",
+    "en_name": "Khmelnytskyi"
+}, {
+    "id": "UA-77",
+    "value": 0,
+    "name": "Чернівецька",
+    "en_name": "Chernivtsi"
+}, {
+    "id": "UA-71",
+    "value": 0,
+    "name": "Черкаська",
+    "en_name": "Cherkasy"
+}, {
+    "id": "UA-74",
+    "value": 0,
+    "name": "Чернігівська",
+    "en_name": "Chernihiv"
+}, {
+    "id": "UA-40",
+    "value": 0,
+    "name": "Севастополь",
+    "en_name": "Sevastopol"
+}, {
+    "id": "UA-43",
+    "value": 0,
+    "name": "Крим",
+    "en_name": "Crimea"
+}]
