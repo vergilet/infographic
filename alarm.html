@@ -111,7 +111,7 @@
                 // chart.chartContainer.background.events.disableType("doublehit");
                 chart.geodataSource.url = "data/ukraine-low-poli.json";
                 chart.geodataSource.events.on("parseended", function(ev) {
-                    jQuery.getJSON( "data/data.json", function( geo ) {
+                    jQuery.getJSON( "data/air.json", function( geo ) {
                         polygonSeries.data = geo;
                     });
                 })
