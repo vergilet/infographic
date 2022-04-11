@@ -63,6 +63,8 @@
 
 
 <script>
+    
+    window.chart = null;
     am4core.ready(function() {
         jQuery.ajaxSetup({ cache: false });
 
@@ -97,7 +99,7 @@
                 }
 
                 // Create map instance
-                var chart = am4core.create("chartdiv", am4maps.MapChart);
+                window.chart = am4core.create("chartdiv", am4maps.MapChart);
 
                 // chart.titles.create().text = title;
 
