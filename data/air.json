@@ -20,7 +20,7 @@
     "en_name": "Donetsk"
 }, {
     "id": "UA-18",
-    "value": 0,
+    "value": 1,
     "name": "Житомирська",
     "en_name": "Zhytomyr"
 }, {
@@ -55,7 +55,7 @@
     "en_name": "Kiev"
 }, {
     "id": "UA-46",
-    "value": 0,
+    "value": 1,
     "name": "Львівська",
     "en_name": "Lviv"
 }, {
