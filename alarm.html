@@ -122,14 +122,6 @@
                 // Create map polygon series
                 var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
 
-                //Set min/max fill color for each area
-                polygonSeries.heatRules.push({
-                    property: "fill",
-                    target: polygonSeries.mapPolygons.template,
-                    min: chart.colors.getIndex(18).brighten(1),
-                    max: chart.colors.getIndex(18).brighten(-0.65)
-                });
-
                 // Make map load polygon data (state shapes and names) from GeoJSON
                 polygonSeries.useGeodata = true;
 
