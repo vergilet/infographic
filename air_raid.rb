@@ -21,6 +21,8 @@ def process_post(post_id)
     else
       return post_id + 1
     end
+  else
+    post_id = @last_post
   end
 
   hashtags = text.scan(/\s(#[[:graph:]]+)/).flatten.map{ |s| s.strip[1..-1] }
