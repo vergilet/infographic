@@ -61,15 +61,14 @@ def process_post(post_id)
     f.write({ post: @next_post_id }.to_json)
   end
 
-
-  g = Git.open('./', :log => Logger.new(STDOUT))
-  p g.worktrees
-  if g.worktrees.count > 0
+  begin
+    g = Git.open('./', :log => Logger.new(STDOUT))
     g.add
     g.commit(@next_post_id)
     g.push
+  rescue
+    'no commits this time'
   end
-
   @next_post_id
 end
 
