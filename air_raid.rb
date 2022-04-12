@@ -64,7 +64,7 @@ def process_post(post_id)
   begin
     g = Git.open('./', :log => Logger.new(STDOUT))
     g.add(:all=>true)
-    g.commit(@next_post_id)
+    g.commit(post_id)
     g.push
   rescue
     p 'no commits this time'
