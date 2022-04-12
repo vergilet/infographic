@@ -67,7 +67,7 @@ def process_post(post_id)
     g.commit(@next_post_id)
     g.push
   rescue
-    'no commits this time'
+    p 'no commits this time'
   end
   @next_post_id
 end
