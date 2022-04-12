@@ -61,7 +61,7 @@ def process_post(post_id)
 
   g = Git.open('./', :log => Logger.new(STDOUT))
   g.add
-  g.commit('message')
+  g.commit(@next_post_id)
   g.push
 
   @next_post_id
