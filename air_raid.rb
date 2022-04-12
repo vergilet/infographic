@@ -6,6 +6,7 @@ file = File.open "data/air.json"
 @template = JSON.load(file)
 
 def process_post(post_id)
+  p post_id
   url = "https://t.me/air_alert_ua/#{post_id}"
   response = HTTParty.get(url)
 
@@ -25,17 +26,24 @@ def process_post(post_id)
 
   pp hashtags
   hashtags.each do |hashtag|
-    obl_hash = @template.find{|obl| obl["name"].split('-').join('') == hashtag.split('_').join(' ')}
+    obl_hash = @template.find{|obl| obl["name"].split('-').join('') == hashtag.split('_').join(' ').gsub('м ', '')}
     next if obl_hash.nil?
     @template -= [obl_hash]
     if text.include?("🔴")
       p "🔴"
       obl_hash["time"] = text[2..7]
       obl_hash["value"] = 1
+      obl_hash["fill"] = '#ff968a'
     elsif text.include?("🟢")
       p "🟢"
       obl_hash["time"] = text[2..7]
       obl_hash["value"] = 0
+      obl_hash["fill"] = '#97c1a9'
+    elsif text.include?("🟡") && text.include?("Відбій тривоги в")
+      p "🟡"
+      obl_hash["time"] = text[2..7]
+      obl_hash["value"] = 0
+      obl_hash["fill"] = '#97c1a9'
     end
     @template += [obl_hash]
   end
@@ -60,6 +68,6 @@ last_post_file = File.open "data/last_post.json"
 loop do
   @x = process_post(@post_id)
   puts Time.now
-  sleep 15
+  sleep 1
   @post_id = @x
 end

@@ -121,16 +121,14 @@
 
                 // Create map polygon series
                 var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
-            
-            
-                polygonSeries.heatRules.push({
-                    property: "fill",
-                    target: polygonSeries.mapPolygons.template,
-                    min: chart.colors.getIndex(9).brighten(0),
-                    max: chart.colors.getIndex(15).brighten(0.45)
-                });
-            
-                polygonSeries.mapPolygons.template.fill = chart.colors.getIndex(1).brighten(-0.5);
+
+                // polygonSeries.heatRules.push({
+                //     "property": "fill",
+                //     "target": polygonSeries.mapPolygons.template,
+                //     "min": am4core.color('green'),
+                //     "max": am4core.color('red')
+                // });
+
 
                 // Make map load polygon data (state shapes and names) from GeoJSON
                 polygonSeries.useGeodata = true;
@@ -141,6 +139,8 @@
                 polygonTemplate.tooltipText = "{name}: {time}";
                 polygonTemplate.nonScalingStroke = true;
                 polygonTemplate.strokeWidth = 0.5;
+                polygonTemplate.propertyFields.fill = "fill";
+                polygonTemplate.fill = am4core.color("#97c1a9");
 
                 // Create hover state and set alternative fill color
                 var hs = polygonTemplate.states.create("hover");
