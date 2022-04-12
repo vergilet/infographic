@@ -69,6 +69,7 @@ def process_post(post_id)
   rescue
     p 'no commits this time'
   end
+  p @next_post_id
   @next_post_id
 end
 
