@@ -63,6 +63,7 @@ def process_post(post_id)
 
   begin
     g = Git.open('./', :log => Logger.new(STDOUT))
+    pp g.diff
     g.add(:all=>true)
     g.commit(post_id)
     g.push
