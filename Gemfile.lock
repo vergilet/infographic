@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    git (1.10.2)
+      rchardet (~> 1.8)
     httparty (0.18.0)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
@@ -13,11 +15,13 @@ GEM
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     racc (1.6.0)
+    rchardet (1.8.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  git
   httparty
   nokogiri
 

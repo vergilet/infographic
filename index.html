@@ -307,6 +307,7 @@
 
         function nextYear() {
             date = date.addDays(1);
+            console.log(date)
 
             if (date.getTime() > Date.now()) {
                 stop()
@@ -314,7 +315,14 @@
             }
 
             var newData = allData[date.getTime()];
+
+            if(newData == undefined) {
+                return
+            }
             var itemsWithNonZero = 0;
+            console.log(chart.data.length)
+            console.log(newData)
+
             for (var i = 0; i < chart.data.length; i++) {
                 chart.data[i].value = newData[i].value;
                 if (chart.data[i].value > 0) {

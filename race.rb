@@ -22,7 +22,7 @@ class Race
     if oblast.match('Вінницька область — ')
       text.slice!('Вінницька область — ')
       slicer(text)
-      { "id": "UA-05", "value": text.to_i.to_i, "name": "Вінницька", "en_name": "Vinnytsia" }
+      { "id": "UA-05", "value": text.to_i, "name": "Вінницька", "en_name": "Vinnytsia" }
     elsif oblast.match('Волинська область — ')
       text.slice!('Волинська область — ')
       slicer(text)
@@ -94,6 +94,7 @@ class Race
     elsif oblast.match('Тернопільська область — ')
       text.slice!('Тернопільська область — ')
       slicer(text)
+      pp text
       { "id": "UA-61", "value": text.to_i, "name": "Тернопільська", "en_name": "Ternopil" }
     elsif oblast.match('Харківська область — ')
       text.slice!('Харківська область — ')

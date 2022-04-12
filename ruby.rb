@@ -47,20 +47,10 @@ input.each do |post_id, post_date|
   pp '================'
 end
 
+pp hash.keys
 
 # JSON GENERATION
-
-pp "Write race-auto.json"
-File.open("data/race-auto.json","w") do |f|
-  f.write(hash.to_json)
-end
-pp "Done race-auto.json!"
-
-pp "Write tendentious.json"
-File.open("data/tendentious.json","w") do |f|
-  f.write(tendentious.to_json)
-end
-pp "Done tendentious.json"
+z
 
 last_key = hash.keys.max
 pp "Last date detecting: #{last_key} - #{Time.at(last_key[0..-4].to_i).utc}"

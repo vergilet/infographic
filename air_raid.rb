@@ -1,6 +1,7 @@
 require 'httparty'
 require 'nokogiri'
 require "json"
+require 'git'
 
 file = File.open "data/air.json"
 @template = JSON.load(file)
@@ -57,6 +58,12 @@ def process_post(post_id)
   File.open("data/last_post.json","w") do |f|
     f.write({ post: @next_post_id }.to_json)
   end
+
+  g = Git.open('./', :log => Logger.new(STDOUT))
+  g.add
+  g.commit('message')
+  g.push
+
   @next_post_id
 end
 
