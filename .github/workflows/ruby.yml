@@ -31,12 +31,11 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     
-    - uses: EndBug/add-and-commit@v9
+    - name: Commit and push changes
+      uses: devops-infra/action-commit-push@v0.9.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        add: '.'
-        message: Update Data
-        default_author: github_actions
+        commit_message: Replaced foo with bar
         
     
     - name: Run tests
