@@ -223,7 +223,6 @@
                     return response.json();
                 })
                 .then((data) => {
-                    console.log(data);
                     $('#timestamp').text(data["time"])
                 });
             timeout();
