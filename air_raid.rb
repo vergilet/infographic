@@ -61,7 +61,7 @@ def process_post(post_id)
 
   @next_post_id = post_id + 1
   File.open("data/last_post.json","w") do |f|
-    f.write({ post: @next_post_id }.to_json)
+    f.write({ post: @next_post_id, time: Time.now.to_s }.to_json)
   end
 end
 

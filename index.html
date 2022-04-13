@@ -207,16 +207,29 @@
     </div>
 </div>
 <div id="footer" style="padding: 30px; background-color: #505050;color: #fff; font-size: 12px">
+    Останнє оновлення: <span id="timestamp"></span>
     Інформацію взято з відкритих джерел.
     <br>
     Створено <a style="color:white" href="https://github.com/vergilet" target="_blank">Yaro</a>
 </div>
-<!--<script>-->
-<!--    $("ul li a").click(function(e) {-->
-<!--        e.preventDefault();-->
-<!--        var aid = $(this).attr("href");-->
-<!--        $('html,body').animate({scrollTop: $(aid).offset().top},'slow');-->
-<!--    });-->
-<!--</script>-->
+<script>
+    function timeout() {
+        setTimeout(function () {
+            fetch('https://vergilet.github.io/infographic/data/last_post.json')
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log(data);
+                    $('#timestamp').text(data["time"])
+                });
+            timeout();
+        }, 10000);
+    }
+    $(document).ready(function (){
+        timeout();
+    });
+
+</script>
 </body>
 </html>
