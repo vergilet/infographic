@@ -8,7 +8,7 @@
 name: Ruby
 
 on:
-  page_build:
+  deployment:
     branches: [ master ]
 #   pull_request:
 #     branches: [ master ]
