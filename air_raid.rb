@@ -64,15 +64,17 @@ def process_post(post_id)
     f.write({ post: @next_post_id }.to_json)
   end
 
+  @guard_break = false
   begin
     g = Git.open('./', :log => Logger.new(STDOUT))
     g.add(:all=>true)
     g.commit(post_id)
     g.push
+    @guard_break = true
   rescue
     p 'no commits this time'
   end
-  
+
   p @next_post_id
   @next_post_id
 end
@@ -84,6 +86,7 @@ last_post_file = File.open "data/last_post.json"
 
 loop do
   @x = process_post(@post_id)
+  break if @guard_break
   puts Time.now
   sleep 1
   @post_id = @x
