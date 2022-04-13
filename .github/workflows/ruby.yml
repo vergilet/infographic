@@ -38,4 +38,4 @@ jobs:
         
     
     - name: Run one or a few loops
-      run: bundle ruby air_raid.rb
+      run: bundle exec ruby air_raid.rb
