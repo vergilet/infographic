@@ -37,5 +37,5 @@ jobs:
         commit_message: Replaced foo with bar
         
     
-    - name: Run tests
-      run: bundle exec rake
+    - name: Run one or a few loops
+      run: bundle ruby air_raid.rb
