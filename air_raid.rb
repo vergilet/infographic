@@ -18,7 +18,7 @@ def process_post(post_id)
 
   if text.nil? || text.include?("Офіційний канал, що інформує про повітряну тривогу в будь-якому регіоні України.")
     File.open("data/last_post.json","w") do |f|
-      f.write({ post: post_id, time: Time.now.to_s }.to_json)
+      f.write({ post: post_id, time: Time.now.getlocal('+03:00').strftime('%d-%m-%Y %T (UA)') }.to_json)
     end
     if (@next_post_id + 10) < post_id
       return @next_post_id
@@ -64,7 +64,7 @@ def process_post(post_id)
 
   @next_post_id = post_id + 1
   File.open("data/last_post.json","w") do |f|
-    f.write({ post: @next_post_id, time: Time.now.to_s }.to_json)
+    f.write({ post: @next_post_id, time: Time.now.getlocal('+03:00').strftime('%d-%m-%Y %T (UA)') }.to_json)
   end
 end
 
