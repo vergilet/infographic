@@ -14,15 +14,16 @@ def process_post(post_id)
   parsed_data = Nokogiri::HTML.parse(response.body)
   text = parsed_data.at('meta[property="og:description"]')["content"]
 
+  @next_post_id ||= @last_post
+
   if text.nil? || text.include?("Офіційний канал, що інформує про повітряну тривогу в будь-якому регіоні України.")
-    @next_post_id ||= @last_post
     if (@next_post_id + 10) < post_id
       return @next_post_id
     else
       return post_id + 1
     end
   else
-    post_id = @last_post
+    post_id = @next_post_id
   end
 
   hashtags = text.scan(/\s(#[[:graph:]]+)/).flatten.map{ |s| s.strip[1..-1] }
@@ -47,6 +48,8 @@ def process_post(post_id)
       obl_hash["time"] = text[2..7]
       obl_hash["value"] = 0
       obl_hash["fill"] = '#97c1a9'
+    else
+      next
     end
     @template += [obl_hash]
   end
@@ -56,7 +59,6 @@ def process_post(post_id)
     f.write(@template.to_json)
   end
 
-  p post_id
   @next_post_id = post_id + 1
   File.open("data/last_post.json","w") do |f|
     f.write({ post: @next_post_id }.to_json)
@@ -70,6 +72,7 @@ def process_post(post_id)
   rescue
     p 'no commits this time'
   end
+  
   p @next_post_id
   @next_post_id
 end
