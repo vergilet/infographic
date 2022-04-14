@@ -70,7 +70,13 @@ end
 
 
 last_post_file = File.open "data/last_post.json"
-@last_post = JSON.load(last_post_file)["post"]
+@last_post = JSON.load(last_post_file)&.dig("post")
+
+while @last_post.nil? do
+  sleep 5
+  @last_post = JSON.load(last_post_file)&.dig("post")
+end
+
 @post_id = @last_post
 
 process_post(@post_id)
