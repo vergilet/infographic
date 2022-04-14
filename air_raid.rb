@@ -12,7 +12,7 @@ def process_post(post_id)
   response = HTTParty.get(url)
 
   parsed_data = Nokogiri::HTML.parse(response.body)
-  text = parsed_data.at('meta[property="og:description"]')&.dig("content")
+  text = parsed_data.at('meta[property="og:description"]')["content"] rescue nil
   return if text.nil?
   @next_post_id ||= @last_post
 
