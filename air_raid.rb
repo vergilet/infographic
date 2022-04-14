@@ -12,8 +12,8 @@ def process_post(post_id)
   response = HTTParty.get(url)
 
   parsed_data = Nokogiri::HTML.parse(response.body)
-  text = parsed_data.at('meta[property="og:description"]')["content"]
-
+  text = parsed_data.at('meta[property="og:description"]')&.dig("content")
+  return if text.nil?
   @next_post_id ||= @last_post
 
   if text.nil? || text.include?("Офіційний канал, що інформує про повітряну тривогу в будь-якому регіоні України.")
