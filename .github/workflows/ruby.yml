@@ -36,5 +36,5 @@ jobs:
       uses: devops-infra/action-commit-push@v0.9.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        commit_message: Updated data ${add_timestamp}
+        commit_message: Updated data ${{ github.event.head_commit.timestamp }}
 
